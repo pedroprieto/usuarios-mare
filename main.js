@@ -55,20 +55,8 @@ app.all('*', function(req,res,next) {
     return next();
 });
 
-// Check authentication for all routes but /login
-// FIX: no reconoce el raíz
-app.all('*', function(req, res, next) {
-    if (/^\//g.test(req.url)) {
-	return next();
-    } else if (req.isAuthenticated()) {
-	return next();
-    } else {
-	// TODO: posibilidad de cambiar y poner error 401
-	return res.redirect("/");
-    }
-});
-
-app.all('*',passport.authenticate('basic', { session: false }), function(req,res,next) {
+// Necesaria autenticación en todo el sitio excepto en /phpmyadmin y en /
+app.all(/^(?!\/phpmyadmin|\/$)(.+)$/,passport.authenticate('basic', { session: false }), function(req,res,next) {
     return next();
 });
 

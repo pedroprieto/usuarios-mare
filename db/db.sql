@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 -- Base de datos: `usumare`
 --
 
-create database IF NOT EXISTS usumare;
-use usumare;
+create database IF NOT EXISTS usuarios;
+use usuarios;
 
 -- --------------------------------------------------------
 
