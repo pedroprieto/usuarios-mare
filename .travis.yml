@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- '0.10'
+before_install:
+- mysql -uroot < db/db_test.sql
+services: mysql
+deploy:
+  provider: openshift
+  user: tics@iesmarenostrum.com
+  password:
+    secure: LIUd1aeAy+M3GFI6VthQICmSbgqp2QDKcNdh7VNrI88Nx41WLbtdIVM5ApQUheBJorWfv6G6tVX6V5/40n5H2iXNF5bXhpMBB9DZ6m/rgpdQ5w368zkQ0wKctfUOZzJsC2X8FFK/pZbmHgq5TIsT4E3aS50InvkUaSacpJXI19PRDS4HiGu5G5qizErsxTJknPuhDu/3Gy9aG9AHo7ourjCOPCoQTp+B4P0QvolxZS+94Mh1LDEGt9TUZNiUZzmrrB+a9JxYIRKHxGjgf/mUgOtzymf9AfDChv/wQzpO2m3wVH/mB8ziN0BvfcJsNLSxfFiKLFzdSIo5Zpgwg7oktjHNGvzueEDJw/x5fdHnz2MulyIf0Ji12NGR6crwblxdiGbEn1VmV5VPu92RRvEOYytSrNpPf3cAqYVDKgbDe/kGnINFMw/vkQqOsQ5R9wR438cH6PqHq1rh8hQPqws8I4oJkrVGxc+mml5aHLiNVR+RjNZuTBCKzAxi7A98KSJk8biWcDb0+ugKQ3pHQ0yIEOKkKRDyWxxsymM/rsiqwkpJxODBJVgmugtYbbQ2HiQzj8oEriv/dTomlq9W5ACU04+vCD9Z1i91RetxPatXQDAX2vMUCRLYaYNoWcITbnA0EJppS+5zzpLCbZH6WvsQqayS0BsIQX5AjenkhSVrel4=
+  app: usuarios
+  domain: marenostrum
+  on:
+    repo: pedroprieto/usuarios-mare

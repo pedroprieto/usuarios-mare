@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Cambio de Contraseña
+    meta(http-equiv="content-type", content="text/html; charset=UTF-8")
+  body
+    h1 Cambio de contraseña personal
+    p: a(href= routeToPath('personal')) Página personal
+    form(name="login", action= routeToPath('cambio_pass'), method="post")
+      label(for= c_old) Contraseña antigua
+      input(type="password", name= c_old, id= c_old)
+      label(for= c_new) Nueva contraseña	
+      input(type="password", name= c_new, id= c_new)
+      label(for= c_confirm) Confirmar nueva contraseña
+      input(type="password", name= c_confirm, id= c_confirm)
+      input(type="submit", value="Enviar")
+    if error
+      p= error
+    if exito
+      p= exito
+      p: a(href= routeToPath('personal')) Volver
+
